@@ -6,8 +6,8 @@ endif(COMMAND cmake_policy)
 
 project(flann)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
-set(LZ4_LINK_LIBRARIES /opt/aarch64-deps/lib/liblz4.a)
-include_directories(/opt/aarch64-deps/include)
+set(LZ4_LINK_LIBRARIES "${CMAKE_INSTALL_PREFIX}/lib/liblz4.a")
+include_directories("${CMAKE_INSTALL_PREFIX}/include")
 
 
 include(${PROJECT_SOURCE_DIR}/cmake/flann_utils.cmake)
