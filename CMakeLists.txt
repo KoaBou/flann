@@ -6,6 +6,9 @@ endif(COMMAND cmake_policy)
 
 project(flann)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
+set(LZ4_LINK_LIBRARIES /opt/aarch64-deps/lib/liblz4.a)
+include_directories(/opt/aarch64-deps/include)
+
 
 include(${PROJECT_SOURCE_DIR}/cmake/flann_utils.cmake)
 set(FLANN_VERSION 1.9.2)
@@ -148,8 +151,8 @@ if (BUILD_CUDA_LIB)
 endif(BUILD_CUDA_LIB)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(LZ4 REQUIRED liblz4)
-include_directories(${LZ4_INCLUDE_DIRS})
+# pkg_check_modules(LZ4 REQUIRED liblz4)
+# include_directories(${LZ4_INCLUDE_DIRS})
 
 #set the C/C++ include path to the "include" directory
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/src/cpp)
